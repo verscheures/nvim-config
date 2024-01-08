@@ -28,15 +28,33 @@ require("lazy").setup({
                 icon_preset = "diamond",
               },
             }, -- Adds pretty icons to your documents
+            ["core.journal"] = {
+              config = {
+                workspace = "journal",
+              },
+            },
             ["core.dirman"] = { -- Manages Neorg workspaces
               config = {
                 workspaces = {
                   notes = "~/Documents/notes",
+                  journal = "~/Documents/journal",
                 },
                 default_workspace = "notes",
               },
             },
             ["core.summary"] = {},
+            ["core.qol.toc"] = {
+              config = {
+                close_after_use = true,
+              },
+            },
+            ["core.keybinds"] = {
+              config = {
+                hook = function(keybinds)
+                  keybinds.remap_key("norg", "n", "<C-Space>", "<Leader>t")
+                end,
+              },
+            },
           },
         })
       end,
